@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yukti Parekh, Social Media Marketing Executive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:        #191C0C;
+    --ink-2:      #21240F;
+    --moss:       #2A2E14;
+    --moss-line:  #444A22;
+    --paper:      #F5F0DE;
+    --paper-dim:  #E5DFC4;
+    --fern:       #8C9049;
+    --fern-soft:  #B2B473;
+    --marigold:   #D6A052;
+    --marigold-2: #E8C583;
+    --ink-text:   #142720;
+    --shadow:     0 20px 50px -20px rgba(0,0,0,.55);
+    --ease: cubic-bezier(.22,.68,0,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Sora',sans-serif;
+    font-weight:400;
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit;}
+  ul{list-style:none;}
+  img{display:block; max-width:100%;}
+
+  :focus-visible{outline:2px solid var(--marigold); outline-offset:3px; border-radius:4px;}
+
+  .wrap{max-width:1120px; margin:0 auto; padding-inline:32px;}
+
+  .eyebrow{
+    font-family:'Sora',sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--marigold-2);
+  }
+
+  /* ---------- background texture ---------- */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- nav ---------- */
+  .navbar{
+    position:fixed; top:18px; left:50%; transform:translateX(-50%);
+    z-index:100;
+    display:flex; align-items:center; gap:4px;
+    background:rgba(14,38,32,.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    border:1px solid var(--moss-line);
+    border-radius:100px;
+    padding:7px 7px 7px 18px;
+    box-shadow:0 10px 30px -12px rgba(0,0,0,.5);
+    transition:top .4s var(--ease);
+  }
+  .navbar .mono{
+    font-family:'Fraunces',serif; font-weight:700; font-size:16px;
+    margin-right:14px; letter-spacing:.02em; color:var(--paper);
+    display:flex; align-items:center; gap:7px;
+  }
+  .navbar .mono .dot{width:7px;height:7px;border-radius:50%;background:var(--marigold);display:inline-block;}
+  .nav-links{display:flex; gap:2px;}
+  .nav-links a{
+    font-size:13.5px; font-weight:500; padding:9px 15px; border-radius:100px;
+    color:var(--fern-soft); transition:background .25s var(--ease), color .25s var(--ease);
+    white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--paper);}
+  .nav-links a.active{background:var(--fern); color:var(--ink);}
+  .nav-cta{
+    margin-left:6px; background:var(--marigold); color:var(--ink);
+    font-weight:600; font-size:13px; padding:9px 16px; border-radius:100px;
+    transition:transform .25s var(--ease), background .25s var(--ease);
+  }
+  .nav-cta:hover{transform:translateY(-1px); background:var(--marigold-2);}
+  .nav-toggle{display:none;}
+
+  @media (max-width: 720px){
+    .navbar{
+      top:14px; left:16px; right:16px; transform:none; width:auto;
+      justify-content:space-between; padding:9px 9px 9px 16px;
+    }
+    .nav-links{
+      position:fixed; top:66px; left:16px; right:16px;
+      background:var(--ink-2); border:1px solid var(--moss-line); border-radius:20px;
+      flex-direction:column; padding:10px; gap:2px;
+      display:none; box-shadow:var(--shadow);
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 14px;}
+    .nav-cta{display:none;}
+    .nav-toggle{
+      display:flex; flex-direction:column; gap:4px; padding:10px;
+    }
+    .nav-toggle span{width:18px; height:1.5px; background:var(--paper); display:block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex; align-items:center;
+    padding-top:120px; padding-bottom:80px;
+    background:
+      radial-gradient(90% 60% at 82% 8%, rgba(140,144,73,.16), transparent 60%),
+      radial-gradient(60% 50% at 8% 95%, rgba(214,160,82,.10), transparent 60%),
+      var(--ink);
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center;
+  }
+  .hero-copy{position:relative; z-index:2;}
+  .hero-copy .eyebrow{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(44px, 6.4vw, 82px);
+    line-height:.98;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--fern-soft); font-weight:500;
+  }
+  .hero-tag{
+    margin-top:26px; max-width:480px;
+    font-size:18px; line-height:1.6; color:var(--paper-dim);
+  }
+  .hero-actions{margin-top:38px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 24px; border-radius:100px; font-weight:600; font-size:14.5px;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+  }
+  .btn-primary{background:var(--marigold); color:var(--ink);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(214,160,82,.5);}
+  .btn-ghost{background:transparent; color:var(--paper); border:1px solid var(--moss-line);}
+  .btn-ghost:hover{border-color:var(--fern); background:var(--moss);}
+  .btn svg{width:15px; height:15px; transition:transform .3s var(--ease);}
+  .btn:hover svg{transform:translate(3px,-3px);}
+
+  .stat-row{display:flex; gap:34px; margin-top:52px; flex-wrap:wrap;}
+  .stat b{
+    font-family:'Fraunces',serif; font-size:34px; font-weight:600; color:var(--marigold-2);
+    display:block; line-height:1;
+  }
+  .stat span{font-size:12.5px; color:var(--fern-soft); text-transform:uppercase; letter-spacing:.08em; margin-top:8px; display:block;}
+
+  /* story-ring photo */
+  .hero-photo-wrap{position:relative; z-index:2; justify-self:center;}
+  .ring{
+    width:min(360px, 78vw); aspect-ratio:1/1.22; border-radius:38px;
+    padding:6px;
+    background:conic-gradient(from 210deg, var(--fern) 0deg, var(--marigold) 130deg, var(--marigold-2) 200deg, var(--fern) 360deg);
+    box-shadow:var(--shadow);
+    animation:ring-spin 12s linear infinite;
+  }
+  @keyframes ring-spin{
+    0%,92%{filter:hue-rotate(0deg);}
+  }
+  .ring-inner{
+    width:100%; height:100%; border-radius:34px; overflow:hidden; background:var(--moss);
+    position:relative;
+  }
+  .ring-inner img{width:100%; height:100%; object-fit:cover;}
+  .badge-live{
+    position:absolute; bottom:16px; left:16px;
+    display:flex; align-items:center; gap:8px;
+    background:rgba(14,38,32,.78); backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.12);
+    padding:8px 14px 8px 10px; border-radius:100px;
+    font-size:12px; font-weight:600; color:var(--paper);
+  }
+  .badge-live .pulse{
+    width:8px; height:8px; border-radius:50%; background:var(--marigold);
+    box-shadow:0 0 0 0 rgba(214,160,82,.6); animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(214,160,82,.55);}
+    70%{box-shadow:0 0 0 9px rgba(214,160,82,0);}
+    100%{box-shadow:0 0 0 0 rgba(214,160,82,0);}
+  }
+
+  .scroll-cue{
+    position:absolute; bottom:26px; left:0; right:0; margin:0 auto;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    width:fit-content; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--fern-soft); z-index:2;
+  }
+  .scroll-cue .line{width:1px; height:34px; background:linear-gradient(var(--fern), transparent); animation:cue 1.8s ease-in-out infinite;}
+  @keyframes cue{0%,100%{transform:scaleY(1); opacity:.9;} 50%{transform:scaleY(.55); opacity:.4;}}
+
+  @media (max-width: 880px){
+    .hero .wrap{grid-template-columns:1fr; text-align:left;}
+    .hero-photo-wrap{order:-1; margin-bottom:8px;}
+    .ring{width:min(280px, 60vw);}
+    .stat-row{gap:26px;}
+  }
+
+  /* ---------- section shell ---------- */
+  section{position:relative; z-index:2;}
+  .section-pad{padding:118px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(32px,4vw,46px); margin-top:16px; color:var(--paper);}
+  .section-head p{margin-top:16px; color:var(--fern-soft); font-size:16px; max-width:480px;}
+
+  /* ---------- about ---------- */
+  .about{background:var(--ink);}
+  .about-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:start;}
+  .about-lede{
+    font-family:'Fraunces',serif; font-weight:500; font-style:italic;
+    font-size:clamp(22px,2.6vw,30px); line-height:1.42; color:var(--paper);
+  }
+  .about-body p{color:var(--paper-dim); font-size:16px; line-height:1.75; margin-top:18px;}
+  .about-body p:first-child{margin-top:0;}
+  .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .pill-row span{
+    font-size:12.5px; font-weight:600; color:var(--fern-soft);
+    border:1px solid var(--moss-line); padding:8px 14px; border-radius:100px;
+  }
+  @media (max-width:840px){.about-grid{grid-template-columns:1fr; gap:30px;}}
+
+  /* ---------- experience / calendar ---------- */
+  .experience{background:var(--moss); border-top:1px solid var(--moss-line); border-bottom:1px solid var(--moss-line);}
+  .exp-top{display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:start; margin-bottom:44px;}
+  .exp-intro p{margin-top:4px;}
+  .exp-intro .exp-lede{
+    font-family:'Fraunces',serif; font-weight:500; font-style:italic;
+    font-size:clamp(20px,2.3vw,26px); line-height:1.45; color:var(--paper);
+    margin-bottom:18px;
+  }
+  .exp-intro p{font-size:16.5px; line-height:1.75; color:var(--paper-dim);}
+  .exp-quote{
+    background:var(--ink); border:1px solid var(--moss-line); border-radius:22px;
+    padding:32px 34px;
+  }
+  .exp-quote .num{font-family:'Fraunces',serif; font-size:44px; font-weight:600; color:var(--marigold-2); line-height:1;}
+  .exp-quote .num-label{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--fern-soft); margin-top:8px;}
+  .exp-quote hr{border:none; border-top:1px solid var(--moss-line); margin:20px 0;}
+  .exp-quote blockquote{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    font-size:17px; line-height:1.5; color:var(--paper);
+  }
+  .exp-quote .who{margin-top:14px; font-size:12.5px; color:var(--fern-soft);}
+
+  @media (max-width:880px){
+    .exp-top{grid-template-columns:1fr; gap:26px;}
+  }
+
+  .cluster-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:3px;
+    border:1px solid var(--moss-line); border-radius:20px; overflow:hidden;
+  }
+  .cluster-card{
+    background:var(--ink); padding:30px 26px; min-height:280px;
+    display:flex; flex-direction:column;
+    transition:background .3s var(--ease);
+  }
+  .cluster-card:hover{background:var(--ink-2);}
+  .cluster-card .c-num{
+    font-family:'Fraunces',serif; font-size:13px; font-weight:600; color:var(--fern-soft);
+    letter-spacing:.06em;
+  }
+  .cluster-card .c-icon{
+    width:40px; height:40px; border-radius:11px; background:var(--moss);
+    border:1px solid var(--moss-line);
+    display:flex; align-items:center; justify-content:center;
+    margin-top:16px; transition:background .3s var(--ease), border-color .3s var(--ease);
+  }
+  .cluster-card:hover .c-icon{background:var(--fern); border-color:var(--fern);}
+  .cluster-card .c-icon svg{width:19px; height:19px; color:var(--marigold-2); transition:color .3s var(--ease);}
+  .cluster-card:hover .c-icon svg{color:var(--ink);}
+  .cluster-card h3{
+    font-family:'Fraunces',serif; font-size:19px; font-weight:600; color:var(--paper);
+    margin-top:20px;
+  }
+  .cluster-card ul{margin-top:14px; flex:1;}
+  .cluster-card li{
+    font-size:13.5px; line-height:1.55; color:var(--fern-soft);
+    padding-left:14px; position:relative; margin-top:10px;
+  }
+  .cluster-card li:first-child{margin-top:0;}
+  .cluster-card li::before{
+    content:""; position:absolute; left:0; top:8px; width:6px; height:1.5px; background:var(--marigold);
+  }
+
+  @media (max-width:920px){
+    .cluster-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .cluster-grid{grid-template-columns:1fr;}
+    .cluster-card{min-height:auto;}
+  }
+
+  /* ---------- skills ---------- */
+  .skills{background:var(--ink);}
+  .tag-field{display:flex; flex-wrap:wrap; gap:12px;}
+  .tag{
+    position:relative; overflow:hidden;
+    border:1px solid var(--moss-line); border-radius:100px;
+    padding:13px 22px; font-size:14.5px; font-weight:500; color:var(--paper-dim);
+    transition:color .3s var(--ease), border-color .3s var(--ease), transform .2s var(--ease);
+  }
+  .tag:hover{border-color:var(--fern); color:var(--paper); transform:translateY(-2px);}
+  .tag:active{transform:translateY(0) scale(.98);}
+  .tag .hash{color:var(--marigold); margin-right:2px;}
+  .tag .copied{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:var(--fern); color:var(--ink); font-weight:600; font-size:13px;
+    transform:translateY(110%); transition:transform .3s var(--ease);
+  }
+  .tag.copied-state .copied{transform:translateY(0);}
+  .skills-note{margin-top:22px; font-size:12.5px; color:var(--fern-soft);}
+
+  /* ---------- industries / grid ---------- */
+  .industries{background:var(--moss); border-top:1px solid var(--moss-line);}
+  .post-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:3px;
+    border:1px solid var(--moss-line); border-radius:20px; overflow:hidden;
+  }
+  .post{
+    position:relative; background:var(--ink);
+    padding:30px 26px; min-height:200px;
+    display:flex; flex-direction:column; align-items:flex-start;
+    cursor:pointer; overflow:hidden;
+    border:none; text-align:left;
+    transition:background .3s var(--ease);
+  }
+  .post::before{
+    content:""; position:absolute; inset:0; opacity:.14;
+    background:radial-gradient(120% 100% at 15% 0%, var(--fern), transparent 60%);
+    transition:opacity .35s var(--ease);
+  }
+  .post:hover::before{opacity:.28;}
+  .post:hover{background:var(--ink-2);}
+  .post .p-icon{
+    width:40px; height:40px; border-radius:11px; background:var(--moss);
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--moss-line); flex-shrink:0;
+    transition:background .3s var(--ease), border-color .3s var(--ease);
+  }
+  .post .p-icon svg{width:19px; height:19px; color:var(--marigold-2); transition:color .3s var(--ease);}
+  .post h3{
+    font-family:'Fraunces',serif; font-size:19px; font-weight:600; color:var(--paper);
+    position:relative; z-index:2; margin-top:20px;
+  }
+  .post .p-tag{
+    font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--fern-soft); margin-top:6px; position:relative; z-index:2;
+  }
+  .post .p-blurb{
+    font-size:13.5px; color:var(--fern-soft); margin-top:12px;
+    position:relative; z-index:2; line-height:1.6;
+  }
+  .post.selected{background:var(--ink-2);}
+  .post.selected .p-icon{background:var(--fern); border-color:var(--fern);}
+  .post.selected .p-icon svg{color:var(--ink);}
+  .post.cta-post{
+    background:linear-gradient(160deg, var(--marigold) 0%, var(--marigold-2) 100%);
+    justify-content:center; align-items:center; text-align:center; gap:8px;
+  }
+  .post.cta-post::before{display:none;}
+  .post.cta-post .plus{
+    width:44px; height:44px; border-radius:50%; border:1.5px solid rgba(14,38,32,.35);
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+  }
+  .post.cta-post .plus svg{width:18px; height:18px; color:var(--ink);}
+  .post.cta-post h3{color:var(--ink); font-size:18px; margin-top:0;}
+  .post.cta-post p{color:rgba(14,38,32,.72); font-size:12.5px; margin-top:6px; max-width:150px;}
+
+  @media (max-width:920px){
+    .post-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .post-grid{grid-template-columns:1fr;}
+    .post{min-height:auto;}
+  }
+
+  /* ---------- contact / footer ---------- */
+  .contact{
+    background:var(--ink); position:relative; overflow:hidden;
+  }
+  .contact::before{
+    content:""; position:absolute; width:600px; height:600px; border-radius:50%;
+    background:radial-gradient(closest-side, rgba(140,144,73,.16), transparent);
+    top:-200px; right:-160px; z-index:0;
+  }
+  .contact-inner{position:relative; z-index:1; text-align:left;}
+  .contact h2{font-size:clamp(36px,6vw,64px); max-width:760px; color:var(--paper); line-height:1.05;}
+  .contact h2 em{font-style:italic; color:var(--marigold-2); font-weight:500;}
+  .contact-actions{display:flex; gap:16px; margin-top:40px; flex-wrap:wrap; align-items:center;}
+  .btn-copy{position:relative;}
+  .btn-copy .toast{
+    position:absolute; left:50%; transform:translateX(-50%) translateY(6px); bottom:calc(100% + 10px);
+    background:var(--paper); color:var(--ink-text); font-size:12.5px; font-weight:600;
+    padding:8px 14px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none;
+    transition:opacity .25s var(--ease), transform .25s var(--ease);
+  }
+  .btn-copy.show .toast{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  .contact-meta{display:flex; gap:44px; margin-top:64px; flex-wrap:wrap;}
+  .contact-meta div span{display:block; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--fern-soft); margin-bottom:8px;}
+  .contact-meta div b{font-family:'Fraunces',serif; font-weight:500; font-size:16px; color:var(--paper);}
+
+  footer{
+    border-top:1px solid var(--moss-line); padding:26px 0; margin-top:100px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    font-size:12.5px; color:var(--fern-soft);
+  }
+  .to-top{
+    display:flex; align-items:center; gap:6px; font-weight:600; color:var(--paper-dim);
+    transition:color .25s var(--ease);
+  }
+  .to-top:hover{color:var(--marigold-2);}
+  .to-top svg{width:13px;height:13px;}
+
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="mono"><span class="dot"></span>YP</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#about" data-nav>About</a>
+    <a href="#experience" data-nav>Experience</a>
+    <a href="#skills" data-nav>Skills</a>
+    <a href="#industries" data-nav>Industries</a>
+    <a href="#contact" data-nav>Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Let's talk</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Social Media Marketing Executive</p>
+      <h1>Yukti<br><em>Parekh</em></h1>
+      <p class="hero-tag">I plan, brief, shoot and edit the content that shows up in your feed, built around a calendar, a trend sheet, and a genuine read on what a brand should sound like.</p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn btn-primary">See how I work
+          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Let's collaborate</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>1.5</b><span>Years in the field</span></div>
+        <div class="stat"><b>05</b><span>Industries served</span></div>
+        <div class="stat"><b>09</b><span>Core skills</span></div>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="ring">
+        <div class="ring-inner">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500'%3E%3Crect fill='%232A2E14' width='400' height='500'/%3E%3C/svg%3E" alt="Yukti Parekh">
+          <div class="badge-live"><span class="pulse"></span>Planning this month's content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</header>
+
+<!-- ABOUT -->
+<section class="about section-pad" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About</p>
+      <p class="about-lede">Content that works isn't accidental. It's planned, briefed, shot, and read.</p>
+    </div>
+    <div class="about-body">
+      <p>I'm a Social Media Marketing Executive with 1.5 years of experience managing social media for brands across genuinely different worlds: Men's Ethnic Wear, HVAC, Real Estate, Bags, and Cookware. Each industry taught me a different way a brand needs to sound.</p>
+      <p>Day to day, that means building monthly content calendars, digging into trends and competitor moves, and turning a brand goal into an actual content strategy. I coordinate with clients to align on creative direction, brief shoots with shot lists and mood boards, and handle everything from shoot execution to final edits. Then I track performance and spot opportunities for the next sprint.</p>
+      <div class="pill-row">
+        <span>Content Calendars</span>
+        <span>Trend Research</span>
+        <span>Client Coordination</span>
+        <span>Shoot Planning</span>
+        <span>Performance Tracking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience section-pad" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Experience</p>
+      <h2>What's actually on the calendar</h2>
+    </div>
+
+    <div class="exp-top">
+      <div class="exp-intro">
+        <p class="exp-lede">Nine tasks, four real jobs.</p>
+        <p>Here's how a typical month actually breaks down: from the first trend scroll to the performance report at the end of it. Everything below rolls up into one of four things I own start to finish.</p>
+      </div>
+      <div class="exp-quote">
+        <span class="num">1.5</span>
+        <span class="num-label">Years, hands-on</span>
+        <hr>
+        <blockquote>"Every brand needs its feed to sound like it, not like every other feed."</blockquote>
+        <p class="who">How I approach a new client</p>
+      </div>
+    </div>
+
+    <div class="cluster-grid">
+      <div class="cluster-card">
+        <span class="c-num">01</span>
+        <span class="c-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 2v4M16 2v4M3.5 9h17M5 4h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Plan &amp; Strategize</h3>
+        <ul>
+          <li>Monthly content calendars, planned and managed</li>
+          <li>Trend, industry &amp; competitor research</li>
+          <li>Content strategy aligned to brand goals</li>
+        </ul>
+      </div>
+      <div class="cluster-card">
+        <span class="c-num">02</span>
+        <span class="c-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 0115.2-7.6z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Coordinate &amp; Concept</h3>
+        <ul>
+          <li>Client coordination: planning, feedback, approvals</li>
+          <li>Creative concepts &amp; shot lists for shoots</li>
+        </ul>
+      </div>
+      <div class="cluster-card">
+        <span class="c-num">03</span>
+        <span class="c-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2v11z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Shoot &amp; Produce</h3>
+        <ul>
+          <li>Execution &amp; coordination of content shoots</li>
+          <li>Basic photo &amp; video editing for social content</li>
+        </ul>
+      </div>
+      <div class="cluster-card">
+        <span class="c-num">04</span>
+        <span class="c-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 15l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Brief &amp; Track</h3>
+        <ul>
+          <li>Content briefs written to support execution</li>
+          <li>Performance tracked, opportunities spotted</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills section-pad" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Skills</p>
+      <h2>The toolkit, tagged</h2>
+      <p>Click a skill to copy it. Handy if you're building out a brief or a job spec.</p>
+    </div>
+    <div class="tag-field" id="tagField">
+      <button class="tag"><span class="hash">#</span>SocialMediaManagement<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>ContentPlanningStrategy<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>TrendResearch<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>ClientCoordination<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>CreativeConceptDevelopment<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>ShootPlanningExecution<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>PhotoVideoEditing<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>CommunicationCollaboration<span class="copied">Copied!</span></button>
+      <button class="tag"><span class="hash">#</span>BrandContentDevelopment<span class="copied">Copied!</span></button>
+    </div>
+    <p class="skills-note">Nine tags, one calendar, zero filler.</p>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries section-pad" id="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Industries</p>
+      <h2>Feeds I've helped run</h2>
+      <p>Five industries, five very different content problems.</p>
+    </div>
+
+    <div class="post-grid" id="postGrid">
+      <button class="post">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10a2 2 0 002 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Men's Ethnic Wear</h3>
+        <span class="p-tag">Fashion &amp; Retail</span>
+        <p class="p-blurb">Festive-season campaigns and styling-led content for a heritage fashion label.</p>
+      </button>
+      <button class="post">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v2m0 14v2M5 12H3m18 0h-2M6.3 6.3L4.9 4.9m14.2 14.2l-1.4-1.4M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>HVAC</h3>
+        <span class="p-tag">Home &amp; Technical</span>
+        <p class="p-blurb">Turning a technical, high-consideration product into content people stop for.</p>
+      </button>
+      <button class="post">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Real Estate</h3>
+        <span class="p-tag">Property</span>
+        <p class="p-blurb">Property showcases and locality content that build trust before the site visit.</p>
+      </button>
+      <button class="post">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8V6a6 6 0 1112 0v2m-13 0h14l1 13H5L6 8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Bags &amp; Accessories</h3>
+        <span class="p-tag">Fashion &amp; Retail</span>
+        <p class="p-blurb">Product-first content with a close eye on styling and detail shots.</p>
+      </button>
+      <button class="post">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8h16M4 8a2 2 0 002 2h12a2 2 0 002-2M4 8l1.5-4h13L20 8M8 12v6a4 4 0 008 0v-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Cookware &amp; Kitchenware</h3>
+        <span class="p-tag">Home &amp; Kitchen</span>
+        <p class="p-blurb">Recipe-led, kitchen-table content that sells the everyday.</p>
+      </button>
+      <a href="#contact" class="post cta-post">
+        <span class="plus"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <h3>Your brand?</h3>
+        <p>This slot's open. Let's plan what goes here.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section-pad" id="contact">
+  <div class="wrap contact-inner">
+    <p class="eyebrow">Contact</p>
+    <h2>Got a feed that needs<br><em>a plan, a shoot,<br>and a calendar?</em></h2>
+
+    <div class="contact-actions">
+      <a href="mailto:parekhyukti15@gmail.com" class="btn btn-primary">
+        parekhyukti15@gmail.com
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="0"/><path d="M4 6l8 7 8-7M4 18V6h16v12H4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="btn btn-ghost btn-copy" id="copyEmailBtn">
+        Copy email
+        <span class="toast" id="copyToast">Copied: parekhyukti15@gmail.com</span>
+      </button>
+      <a href="#top" class="btn btn-ghost">Back to top</a>
+    </div>
+
+    <div class="contact-meta">
+      <div><span>Email</span><b>parekhyukti15@gmail.com</b></div>
+      <div><span>Based in</span><b>India</b></div>
+      <div><span>Role</span><b>Social Media Marketing Executive</b></div>
+      <div><span>Currently</span><b>Open to new briefs</b></div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> Yukti Parekh. Planned, briefed, and edited by the same person.</span>
+  <a href="#top" class="to-top">Back to top
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // scrollspy
+  const sections = ['about','experience','skills','industries','contact'].map(id => document.getElementById(id));
+  const navItems = document.querySelectorAll('[data-nav]');
+  const spy = () => {
+    let current = sections[0].id;
+    const y = window.scrollY + window.innerHeight * 0.35;
+    sections.forEach(sec => { if (sec.offsetTop <= y) current = sec.id; });
+    navItems.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  };
+  document.addEventListener('scroll', spy, {passive:true});
+  spy();
+
+  // skill tag copy
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      const text = tag.textContent.replace('Copied!','').trim();
+      if (navigator.clipboard) navigator.clipboard.writeText(text).catch(()=>{});
+      tag.classList.add('copied-state');
+      setTimeout(() => tag.classList.remove('copied-state'), 1100);
+    });
+  });
+
+  // industry post select
+  document.querySelectorAll('.post:not(.cta-post)').forEach(post => {
+    post.addEventListener('click', () => {
+      const wasSelected = post.classList.contains('selected');
+      document.querySelectorAll('.post').forEach(p => p.classList.remove('selected'));
+      if (!wasSelected) post.classList.add('selected');
+    });
+  });
+
+  // copy email
+  const copyBtn = document.getElementById('copyEmailBtn');
+  copyBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = 'parekhyukti15@gmail.com';
+    if (navigator.clipboard) navigator.clipboard.writeText(email).catch(()=>{});
+    copyBtn.classList.add('show');
+    setTimeout(() => copyBtn.classList.remove('show'), 1800);
+  });
+</script>
+
+</body>
+</html>
